@@ -1,14 +1,13 @@
 const open = require("open");
 
 const urls = [
-  "https://www.reddit.com/",
-  "https://9gag.com/",
-  "https://www.nytimes.com/",
-  "https://www.reuters.com/",
+  'google.com',
+  'youtube.com'
 ];
 
-for (const url of urls) {
-  open(url, { app: { name: "google chrome" } });
+for(const url of urls){
+  open(url, {app: {name: 'brave'}});
 }
 
-open("/Applications/Spotify.app/Contents/MacOS/Spotify");
+// Use Cases
+// Create multiple workFlowSetup files depending on tasks

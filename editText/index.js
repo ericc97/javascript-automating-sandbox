@@ -1,23 +1,23 @@
 const fs = require("fs");
 
-let fileString = fs.readFileSync("input.txt").toString();
+let fileString = fs.readFileSync('input.txt').toString();
 
-//Fill out the initials
-fileString = fileString.replace(/K:/g, "Kevin: ");
-fileString = fileString.replace(/E:/g, "Eric: ");
+// fill out the intials
+fileString = fileString.replace(/K:/g, 'Kevin: ')
+fileString = fileString.replace(/E:/g, 'Eric: ')
 
-//Add line number
-const characterArray = fileString.split("");
-let lineNumber = 1;
+// add line number
+const characterArr = fileString.split("");
+let lineNum = 1;
 
-for (let i = 0; i < characterArray.length; i++) {
-  const prevChar = characterArray[i - 1];
+for(let i = 0; i < characterArr.length; i++){
+  const preChar = characterArr[i - 1];
 
-  if (prevChar === "\n" || !prevChar) {
-    characterArray[i] = String(lineNumber) + ". " + characterArray[i];
-    lineNumber++;
+  if(preChar === "\n" || !preChar){
+    characterArr[i] = String(lineNum) + ". " + characterArr[i];
+    lineNum++;
   }
 }
 
-fileString = characterArray.join("");
-fs.writeFileSync("output.txt", fileString);
+fileString = characterArr.join("")
+fs.writeFileSync('output.txt', fileString);
