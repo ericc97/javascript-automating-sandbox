@@ -1,28 +1,31 @@
-const XLSX = require("xlsx");
+const XLSX = require('xlsx');
 
-const workbook = XLSX.readFile("scores.xlsx");
-const worksheet = workbook.Sheets["Sheet1"];
+const workbook = XLSX.readFile('scores.xlsx');
+const worksheet = workbook.Sheets['Sheet1'];
 
 const arrStudents = XLSX.utils.sheet_to_json(worksheet);
-const highSchoolData = {}; // {highSchool: {numStudents: 0, cumalativeScore: 0}}
+const highSchoolData = {}; // {highschool: {numStudents: 0, cumulativeScore: 0 }}
 
-// Fill out hsData
-for (const student of arrStudents) {
-  const highSchool = student["High School"];
-  const studentAverage = student["Average"];
+//Fill out  highschoolData
+for(const student of arrStudents){
+  const highschool = student['High School']; // use square braces versus .dot notation due to spaces in hs name
+  const studentAverage = student['Average'];
 
-  if (highSchool in highSchoolData === false) {
-    highSchoolData[highSchool] = { numStudents: 0, cumalativeScore: 0 };
+  if(highschool in highSchoolData === false){ //If the highschool isn't in data.. set it
+    highSchoolData[highschool] = { numStudents: 0, cumulativeScore: 0 };
   }
 
-  highSchoolData[highSchool].numStudents += 1;
-  highSchoolData[highSchool].cumalativeScore += studentAverage;
+  highSchoolData[highschool].numStudents += 1
+  highSchoolData[highschool].cumulativeScore += studentAverage;
+
+
+
 }
 
-// Log out average score for each high school using highSchoolData
-for (const highSchool of Object.keys(highSchoolData)) {
-  const highSchoolAverage =
-    highSchoolData[highSchool].cumalativeScore /
-    highSchoolData[highSchool].numStudents;
-  console.log(`The average score for ${highSchool} is ${highSchoolAverage}`);
-}
+// log out each average score for each highschool using highschoolData
+for(const highschool of Object.keys(highSchoolData)){//Object.keys method returns an array of given object
+  const highSchoolAverage = 
+    highSchoolData[highschool].cumulativeScore / 
+    highSchoolData[highschool].numStudents;
+  console.log(`The average score for ${highschool} is ${highSchoolAverage}`);
+} 
