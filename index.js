@@ -13,13 +13,10 @@ function fib(n){
 
 
 
-const functionFib = (num) => {
-	if(num < 2 ) return num;
-	
-	
-	return functionFib(num - 2) + functionFib(num - 1)
+const fibFunc = (int) => {
+	if (int < 3) return 1;
 
-	
+	return fibFunc(int - 1) + fibFunc(int - 2);
 }
 
-console.log(functionFib(5))
+console.log(fibFunc(12))

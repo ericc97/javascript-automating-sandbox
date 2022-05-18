@@ -11,7 +11,7 @@ const sendEmail = (to, attachment1) => {
   });
 
   const mail = {
-    to,
+    to: to,
     subject: `Weekly CSVs`,
     text: "Here you go Mr. Boss",
     attachments: [
