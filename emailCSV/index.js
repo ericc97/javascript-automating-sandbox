@@ -15,3 +15,10 @@ sendMail('fakeemail@gmail.com', {
    filename: 'fileName', 
    content: domainCountCSV
 });
+
+/* 
+Other Scripting Ideas
+  - Have a script check for available apartments on Craigslist every X minutes, if a new listing goes up AND it's price is below X.amount of dollars a month, have your script send you a text message with the listing link
+
+  - Have a script check your company's website on availability of car chargers every X amount of time. When a charger becomes available, have a script send you a text
+*/
